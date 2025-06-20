@@ -1,0 +1,10 @@
+{
+  "idf.portWin": "COM10",
+  "files.associations": {
+    "inttypes.h": "c"
+  },
+  "idf.flashType": "UART",
+  "idf.customExtraVars": {
+    "IDF_TARGET": "esp32s3"
+  }
+}
