@@ -15,7 +15,10 @@
 ########################
 
 //No help, variable specified on the command line.
-CCACHE_ENABLE:UNINITIALIZED=0
+CCACHE_ENABLE:UNINITIALIZED=1
+
+//Path to a program.
+CCACHE_FOUND:FILEPATH=C:/Users/CJ/.espressif/tools/ccache/4.10.2/ccache-4.10.2-windows-x86_64/ccache.exe
 
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=C:/Users/CJ/.espressif/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32s3-elf-addr2line.exe

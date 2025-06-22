@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "UAM_Daughterboard",
-    "project_version":    "123f449-dirty",
+    "project_version":    "833213b-dirty",
     "project_path":       "C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard",
     "idf_path":           "C:/Users/CJ/esp/v5.4.1/esp-idf",
     "build_dir":          "C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/build",
@@ -1195,7 +1195,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/build/esp-idf/main/libmain.a",
-            "sources": [ "C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/main/UAM_Daughterboard.c", "C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/main/tutorial.c" ],
+            "sources": [ "C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/main/wifi_monitor.c", "C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/main/UAM_Daughterboard.c", "C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/main/wifi_main.c" ],
             "include_dirs": [ "." ]
         },
         "mbedtls": {
