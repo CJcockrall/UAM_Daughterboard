@@ -358,6 +358,9 @@ PYTHON:UNINITIALIZED=C:\Users\CJ\.espressif\python_env\idf5.4_py3.11_env\Scripts
 //No help, variable specified on the command line.
 PYTHON_DEPS_CHECKED:UNINITIALIZED=1
 
+//No help, variable specified on the command line.
+SDKCONFIG:UNINITIALIZED=c:\Users\CJ\Desktop\ESP_IDF_Projects\UAM_Daughterboard\sdkconfig
+
 //Value Computed by CMake
 UAM_Daughterboard_BINARY_DIR:STATIC=C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/build
 
