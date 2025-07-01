@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "UAM_Daughterboard",
-    "project_version":    "833213b-dirty",
+    "project_version":    "1b89418-dirty",
     "project_path":       "C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard",
     "idf_path":           "C:/Users/CJ/esp/v5.4.1/esp-idf",
     "build_dir":          "C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/build",
@@ -1195,7 +1195,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/build/esp-idf/main/libmain.a",
-            "sources": [ "C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/main/wifi_monitor.c", "C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/main/UAM_Daughterboard.c", "C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/main/wifi_main.c" ],
+            "sources": [ "C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/main/comm_tasks.c", "C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/main/UART_comm.c", "C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/main/wifi_monitor.c", "C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/main/UAM_Daughterboard.c", "C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/main/wifi_main.c" ],
             "include_dirs": [ "." ]
         },
         "mbedtls": {

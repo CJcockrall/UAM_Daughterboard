@@ -206,3 +206,36 @@ esp_err_t UAMwifi_deinit(void)
 
     return ESP_OK;
 }
+
+int wifi_socket_setup(const char *server_ip, uint16_t server_port)
+{
+    // This function sets up socket connection
+    // It takes server port and IP as parameters
+    // It returns a socket file descriptor on success, or -1 on failure
+
+    // Create a socket
+    int sock = socket(AF_INET, SOCK_STREAM, 0); // AF_INET for IPv4, SOCK_STEAM designates bidirectional, reliable communication
+    if (sock < 0) {
+        ESP_LOGE(TAG, "Unable to create socket: %s", strerror(errno)); // Error logs a value of -1 and errno
+        return -1;
+    }
+
+    // Setup socket address structure
+    struct sockaddr_in dest_addr;
+    dest_addr.sin_family = AF_INET; // Address family (IPv4)
+    dest_addr.sin_port = htons(server_port); // Convert port number to network byte order
+    dest_addr.sin_addr.s_addr = inet_addr(server_ip); // Convert IP address to binary
+
+    // Connect to server
+    ESP_LOGI(TAG, "Connecting to %s:%d...", server_ip, server_port);
+    int err = connect(sock, (struct sockaddr *)&dest_addr, sizeof(dest_addr));
+    if (err != 0) {
+        ESP_LOGE(TAG, "Socket connection failed: %s", strerror(errno));
+        close(sock); // Close the socket if connection fails
+        return -1;
+    }
+
+    ESP_LOGI(TAG, "Socket connected to %s:%d", server_ip, server_port);
+    return sock; // Return the socket file descriptor on success
+
+}

@@ -3,6 +3,8 @@
 #include "UART_comm.h"
 
 // The uart_setup function initializes the UART communication parameters and installs the UART driver.
+// There are also two more functions: one to receive data from UART and send it over Wi-Fi, 
+// and another to receive data from Wi-Fi and send it over UART. These functions are not implemented here,
 void uart_setup(void)
 {
     // Configure UART Parameters
@@ -17,15 +19,27 @@ void uart_setup(void)
         .rx_flow_ctrl_thresh = 122,
     };
     // Set UART parameters
-    ESP_ERROR_CHECK(uart_param_config(uart_num, &uart_config));
+    esp_err_t ret = uart_param_config(uart_num, &uart_config);
+    if (ret != ESP_OK) {
+        ESP_LOGE("UART", "Failed to configure UART parameters: %s", esp_err_to_name(ret));
+        return;
+    }
 
     // Set UART pins(TX: 43, RX: 44, no flow control)
-    ESP_ERROR_CHECK(uart_set_pin(UART_NUM_1, 43, 44, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE));
+    ret = (uart_set_pin(UART_NUM_1, 43, 44, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE));
+    if (ret != ESP_OK) {
+        ESP_LOGE("UART", "Failed to set UART pins: %s", esp_err_to_name(ret));
+        return;
+    }
 
     // Install UART driver using an event queue
     const int uart_buffer_size = (1024 * 2);
     QueueHandle_t uart_queue;
-    ESP_ERROR_CHECK(uart_driver_install(UART_NUM_1, uart_buffer_size, uart_buffer_size, 10, &uart_queue, 0));
+    ret = (uart_driver_install(UART_NUM_1, uart_buffer_size, uart_buffer_size, 10, &uart_queue, 0));
+    if (ret != ESP_OK) {
+        ESP_LOGE("UART", "Failed to install UART driver: %s", esp_err_to_name(ret));
+        return;
+    }
 
 }
 
