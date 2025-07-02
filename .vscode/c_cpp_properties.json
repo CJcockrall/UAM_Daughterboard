@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "ESP-IDF",
+            "compilerPath": "${default}",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${config:idf.espIdfPathWin}/components/**", // for Windows users
+                "${config:idf.espIdfPath}/components/**" // for linux and macOS users
+            ],
+            "browse": {
+              "path": [
+                "${config:idf.espIdfPath}/components", // For Linux and macOS users
+                "${config:idf.espIdfPathWin}/components", // for Windows users
+                "${workspaceFolder}"
+              ]
+            }
+        }
+    ],
+    "version": 4
+}
