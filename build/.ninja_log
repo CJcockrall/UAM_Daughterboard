@@ -3,12 +3,12 @@
 141741	144631	7721857450050657	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/rtc_module.c.obj	11fbbc4ef7773393
 188636	190677	7721857918992621	esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_chip_th.c.obj	9793028926c6c137
 184	328	7721856035624965	project_elf_src_esp32s3.c	bd6ae75766a108c1
-3900	8967	7721856071629757	esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/transport_ssl.c.obj	c53ea6fb347c0338
-85005	87698	7721856882677557	esp-idf/esp_phy/CMakeFiles/__idf_esp_phy.dir/esp32s3/phy_init_data.c.obj	2138396883620290
 272869	275056	7721858761321768	esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/xtensa_perfmon_apis.c.obj	1dce2149e9867ce6
-170	1680	7721856036984205	C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/build/partition_table/partition-table.bin	b48c62962b1ddcae
-128314	130469	7721857315773761	esp-idf/cxx/CMakeFiles/__idf_cxx.dir/cxx_exception_stubs.cpp.obj	b3b0d6ae00bdf2d4
+85005	87698	7721856882677557	esp-idf/esp_phy/CMakeFiles/__idf_esp_phy.dir/esp32s3/phy_init_data.c.obj	2138396883620290
+3900	8967	7721856071629757	esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/transport_ssl.c.obj	c53ea6fb347c0338
 176147	178529	7721857794099736	esp-idf/hal/libhal.a	8e03f1414777ccdd
+128314	130469	7721857315773761	esp-idf/cxx/CMakeFiles/__idf_cxx.dir/cxx_exception_stubs.cpp.obj	b3b0d6ae00bdf2d4
+170	1680	7721856036984205	C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/build/partition_table/partition-table.bin	b48c62962b1ddcae
 12540	14312	7721856158021197	esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/esp_tls_platform_port.c.obj	462f785adcf2db9b
 3826	8232	7721856070894223	esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/transport.c.obj	dbcbf4823daa4ab2
 199892	201247	7721858031548275	esp-idf/bootloader_support/libbootloader_support.a	efec43e111e8862f
@@ -857,7 +857,7 @@
 248721	251075	7721858519842252	esp-idf/unity/CMakeFiles/__idf_unity.dir/port/esp/unity_utils_memory_esp.c.obj	925d1ca6cd48d7bc
 257924	260118	7721858611865254	esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/dvp_share_ctrl.c.obj	44ed302a7d042bfa
 197817	200287	7721858010797995	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/esp32s3/esp_efuse_rtc_calib.c.obj	f0d42ff3dc63b0ee
-271	32120	7731152192366122	build.ninja	30c9a5c3a9442e2e
+73	14560	7731163098254653	build.ninja	30c9a5c3a9442e2e
 198242	200830	7721858015049726	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/esp32s3/esp_efuse_utility.c.obj	1928bbe646d0cee5
 198656	200880	7721858019195898	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/src/esp_efuse_fields.c.obj	10c7c5f8dd3c20d1
 198554	201504	7721858018165797	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/src/esp_efuse_api.c.obj	358108747fd16299
@@ -1065,3 +1065,8 @@
 19478	20058	7731126271022886	C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/build/.bin_timestamp	e85e03babe1a5421
 20058	20235	7731126271140418	C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/build/esp-idf/esptool_py/CMakeFiles/app_check_size	f31801e920cb66e6
 379	3756	7731123673406502	esp-idf/main/CMakeFiles/__idf_main.dir/comm_tasks.c.obj	9641efc1bab86129
+104	505	7731161168300022	CMakeFiles/save-defconfig	b241e4a7499d9612
+104	505	7731161168300022	C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/build/CMakeFiles/save-defconfig	b241e4a7499d9612
+126	14911	7731163098254653	build.ninja	30c9a5c3a9442e2e
+118	609	7731163100884554	CMakeFiles/save-defconfig	7d55d76f6314543c
+118	609	7731163100884554	C:/Users/CJ/Desktop/ESP_IDF_Projects/UAM_Daughterboard/build/CMakeFiles/save-defconfig	7d55d76f6314543c
