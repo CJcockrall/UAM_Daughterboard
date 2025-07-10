@@ -1,5 +1,6 @@
 // wifi_monitor.c
-
+#include "wifi_monitor.h"
+#include "esp_wifi.h"
 #include "wifi_main.h"
 #include "driver/gpio.h"
 

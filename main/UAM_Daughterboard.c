@@ -3,14 +3,12 @@
 This is the main source file for the daughter board of the UAM project...
 */
 
-#include <stdio.h>
-
 // Necessary headers
 #include "wifi_main.h"
 #include "wifi_monitor.h"
 #include "UART_comm.h"
 #include "comm_tasks.h"
-
+#include "ethernet_main.h"
 #define TAG "main"
 
 // Variable to decide if Wi-Fi or Ethernet are being used.
@@ -70,7 +68,7 @@ void app_main(void)
         }
         
         // Set up socket connection to the server
-        sock = wifi_socket_setup(SERVER_IP, SERVER_PORT);
+        sock = network_socket_setup(SERVER_IP, SERVER_PORT);
         if (sock < 0) {
             ESP_LOGE(TAG, "Failed to set up a socket connection");
             return; // Exit if socket setup fails
@@ -85,8 +83,16 @@ void app_main(void)
 
     } else {
         ESP_LOGI(TAG, "Using Ethernet for communication");
-        // Ethernet initialization code will go here
-        // For now, we are focusing on Wi-Fi
+        ethernet_init(); // Initialize Ethernet, see ethernet_main.c and ethernet_main.h
+        sock = network_socket_setup(SERVER_IP, SERVER_PORT); 
+        if (sock < 0) {
+            ESP_LOGE(TAG, "Failed to set up a socket connection");
+            return; // Exit if socket setup fails
+        } 
+        else {
+            ESP_LOGI(TAG, "Socket connection established to %s:%d", SERVER_IP, SERVER_PORT);
+        }
+
     }
 
     // Create tasks for UART and Wi-Fi communication, see comm_tasks.c and comm_tasks.h

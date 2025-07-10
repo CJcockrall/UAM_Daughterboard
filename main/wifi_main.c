@@ -1,5 +1,20 @@
 // wifi_main.c
 #include "wifi_main.h"
+#include "nvs_flash.h"
+#include "esp_event.h"
+#include "esp_wifi.h"
+
+#include "driver/gpio.h"
+
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "freertos/event_groups.h"
+
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <errno.h>
+
 #include "sdkconfig.h"
 
 #include <inttypes.h>
@@ -207,7 +222,7 @@ esp_err_t UAMwifi_deinit(void)
     return ESP_OK;
 }
 
-int wifi_socket_setup(const char *server_ip, uint16_t server_port)
+int network_socket_setup(const char *server_ip, uint16_t server_port)
 {
     // This function sets up socket connection
     // It takes server port and IP as parameters

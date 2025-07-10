@@ -1,6 +1,13 @@
 // comm_tasks.c
 
 #include "comm_tasks.h"
+#include "driver/uart.h"
+#include <string.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include "driver/uart.h"
+#include "esp_log.h"
+#include "esp_err.h"
 
 #define TAG "comm_tasks"
 

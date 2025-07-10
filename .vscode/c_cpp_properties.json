@@ -5,12 +5,21 @@
             "compilerPath": "${default}", 
             "compileCommands": "${workspaceFolder}/build/compile_commands.json",
             "includePath": [
-                "${workspaceFolder}/**",
+                "${workspaceFolder}/main**",
+                "${workspaceFolder}/main/",
+                "${workspaceFolder}/include/**",
+                "${workspaceFolder}/include/",
+                "${workspaceFolder}/components/**",
                 "${config:idf.espIdfPathWin}/components/**", // for Windows users
                 "${config:idf.espIdfPath}/components/**" // for linux and macOS users
             ],
             "browse": {
               "path": [
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/main",
+                "${workspaceFolder}/main/**",
+                "${workspaceFolder}/include/**",
+                "${workspaceFolder}/components",
                 "${config:idf.espIdfPath}/components", // For Linux and macOS users
                 "${config:idf.espIdfPathWin}/components", // for Windows users
                 "${workspaceFolder}"
