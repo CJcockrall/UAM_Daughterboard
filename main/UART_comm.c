@@ -5,12 +5,11 @@
 #include "esp_log.h"
 #include "esp_err.h"
 
-
 #define TAG "UART_comm"
 
 // The uart_setup function initializes the UART communication parameters and installs the UART driver.
 // There are also two more functions: one to receive data from UART and send it over Wi-Fi, 
-// and another to receive data from Wi-Fi and send it over UART. These functions are not implemented here,
+// and another to receive data from Wi-Fi and send it over UART. 
 void uart_setup(void)
 {
     // Configure UART Parameters
@@ -38,7 +37,7 @@ void uart_setup(void)
         return;
     }
 
-    // Install UART driver using an event queue
+    // Install UART driver 
     const int uart_buffer_size = (1024 * 2);
     QueueHandle_t uart_queue;
     ret = (uart_driver_install(UART_NUM_1, uart_buffer_size, uart_buffer_size, 10, &uart_queue, 0));

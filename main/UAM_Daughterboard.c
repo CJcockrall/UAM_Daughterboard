@@ -3,26 +3,25 @@
 This is the main source file for the daughter board of the UAM project...
 */
 
-// Necessary headers
 #include "wifi_main.h"
 #include "wifi_monitor.h"
 #include "UART_comm.h"
 #include "comm_tasks.h"
 #include "ethernet_main.h"
+
 #define TAG "main"
 
-// Variable to decide if Wi-Fi or Ethernet are being used.
+///////// User configurations: ///////
+// Decide if Wi-Fi or Ethernet are being used.
 static bool use_wifi = true;
 
 // Enter the Wi-Fi credentials here
 #define WIFI_SSID "Oilersrock"
 #define WIFI_PASSWORD "1234567890"
 
-// Set server IP and port
 #define SERVER_IP "192.168.1.100" // Replace with your server's IP address
 #define SERVER_PORT 8080 // Replace with your server's port number
-
-// Main function for daughter board
+///////////////////////////////////////
 
 int sock = -1; // Global variable to hold socket file descriptor
 void app_main(void)
@@ -56,15 +55,13 @@ void app_main(void)
         }
         else if (ret == ESP_ERR_WIFI_NOT_CONNECT) {
             ESP_LOGE(TAG, "Wi-Fi station is not connected");
-        } else {
+        } else { // Display AP info in ESP log
             ESP_LOGI(TAG, "--- Access Point Information ---");
             ESP_LOG_BUFFER_HEX("MAC Address", ap_info.bssid, sizeof(ap_info.bssid));
             ESP_LOG_BUFFER_CHAR("SSID", ap_info.ssid, sizeof(ap_info.ssid));
             ESP_LOGI(TAG, "Primary Channel: %d", ap_info.primary);
             ESP_LOGI(TAG, "RSSI: %d", ap_info.rssi);
 
-            //ESP_LOGI(TAG, "Disconnecting in 5 seconds...");
-            //vTaskDelay(pdMS_TO_TICKS(5000));
         }
         
         // Set up socket connection to the server
@@ -76,10 +73,6 @@ void app_main(void)
         else {
             ESP_LOGI(TAG, "Socket connection established to %s:%d", SERVER_IP, SERVER_PORT);
         }
-
-        // functions to disconnect from wi-fi and deinitialize for testing purposes if needed
-        //ESP_ERROR_CHECK(UAMwifi_disconnect()); 
-        //ESP_ERROR_CHECK(UAMwifi_deinit()); 
 
     } else {
         ESP_LOGI(TAG, "Using Ethernet for communication");

@@ -1,4 +1,4 @@
-/* Ethernet Basic Example
+/* Ethernet Basic Example (modified by Cameron Cockrall)
 
    This example code is in the Public Domain (or CC0 licensed, at your option.)
 
