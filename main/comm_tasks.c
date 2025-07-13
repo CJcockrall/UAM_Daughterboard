@@ -16,7 +16,7 @@ extern int sock; // Global variable defined in UAM_Daughterboard.c that holds so
 // This source file contains the implementation of communication tasks
 // 2 tasks, one for UART -> ESP32 -> Wi-Fi/Ethernet and another for Wi-Fi/Ethernet -> ESP32 -> UART 
 
-void receive_uart(void)
+void receive_uart(void *pvParameters)
 {
     // This task will read data from UART based on already configured UART parameters
     // and send it over Wi-Fi or Ethernet.
@@ -45,7 +45,7 @@ void receive_uart(void)
     vTaskDelete(NULL); // Delete task if loop exits
 }
 
-void transmit_uart(void)
+void transmit_uart(void *pvParameters)
 {
     // This task will read data from Wi-Fi or Ethernet and send it over UART.
     // It will use the UART parameters already configured in uart_setup().
