@@ -238,9 +238,35 @@ int network_socket_setup(const char *server_ip, uint16_t server_port)
     // Setup socket address structure
     struct sockaddr_in dest_addr;
     dest_addr.sin_family = AF_INET; // Address family (IPv4)
-    dest_addr.sin_port = htons(server_port); // Convert port number to network byte order
+    dest_addr.sin_port = htons(server_port); // Convert port number to network byte order (byte swap)
     dest_addr.sin_addr.s_addr = inet_addr(server_ip); // Convert IP address to binary
 
+    // Set socket options, (keep-alive, timeout, etc.)
+
+    // Enable TCP keep-alive to allow periods of inactivity
+
+    int keepalive = 1;
+    int keepidle = 5; // Start sending keep-alive probes after 5 seconds of inactivity
+    int keepintvl = 5; // Seconds between probes
+    int keepcnt = 3; // Number of probes before connection is terminated
+
+    if (setsockopt(sock, SOL_SOCKET, SO_KEEPALIVE, &keepalive, sizeof(int)) < 0) {
+        ESP_LOGE(TAG, "Failed to set SO_KEEPALIVE: errno %d", errno);
+    }
+
+    if (setsockopt(sock, IPPROTO_TCP, TCP_KEEPIDLE, &keepidle, sizeof(int)) < 0) {
+        ESP_LOGE(TAG, "Failed to set TCP_KEEPIDLE: errno %d", errno);
+    }
+
+    if (setsockopt(sock, IPPROTO_TCP, TCP_KEEPINTVL, &keepintvl, sizeof(int)) < 0) {
+        ESP_LOGE(TAG, "Failed to set TCP_KEEPINTVL: errno %d", errno);
+    }
+
+    if (setsockopt(sock, IPPROTO_TCP, TCP_KEEPCNT, &keepcnt, sizeof(int)) < 0) {
+        ESP_LOGE(TAG, "Failed to set TCP_KEEPCNT: errno %d", errno);
+    }
+
+    
     // Connect to server
     ESP_LOGI(TAG, "Connecting to %s:%d...", server_ip, server_port);
     int err = connect(sock, (struct sockaddr *)&dest_addr, sizeof(dest_addr));

@@ -10,8 +10,8 @@
                 "${workspaceFolder}/include/**",
                 "${workspaceFolder}/include/",
                 "${workspaceFolder}/components/**",
-                "${config:idf.espIdfPathWin}/components/**", // for Windows users
-                "${config:idf.espIdfPath}/components/**" // for linux and macOS users
+                "${config:idf.espIdfPathWin}/components/**", 
+                "${config:idf.espIdfPath}/components/**" 
             ],
             "browse": {
               "path": [
@@ -20,8 +20,8 @@
                 "${workspaceFolder}/main/**",
                 "${workspaceFolder}/include/**",
                 "${workspaceFolder}/components",
-                "${config:idf.espIdfPath}/components", // For Linux and macOS users
-                "${config:idf.espIdfPathWin}/components", // for Windows users
+                "${config:idf.espIdfPath}/components", 
+                "${config:idf.espIdfPathWin}/components", 
                 "${workspaceFolder}"
               ]
             }

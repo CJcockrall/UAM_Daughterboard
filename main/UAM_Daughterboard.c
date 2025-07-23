@@ -19,11 +19,10 @@ static bool use_wifi = true;
 #define WIFI_SSID "Oilersrock"
 #define WIFI_PASSWORD "1234567890"
 
-#define SERVER_IP "192.168.1.100" // Replace with your server's IP address
+#define SERVER_IP "10.0.0.194" // Replace with your server's IP address
 #define SERVER_PORT 8080 // Replace with your server's port number
 ///////////////////////////////////////
-
-int sock = -1; // Global variable to hold socket file descriptor
+int sock = -1; // Global variable to hold socket file descriptor, initialized with invalid value
 void app_main(void)
 {
 
@@ -38,10 +37,10 @@ void app_main(void)
         ESP_LOGI(TAG, "Using Wi-Fi for communication");
         ESP_ERROR_CHECK(UAMwifi_init()); // Initialize Wi-Fi
 
-        // Start Wi-Fi monitor task, see wifi_monitor.c and wifi_monitor.h
+        // Start Wi-Fi monitoring task for LED, see wifi_monitor.c and wifi_monitor.h
         xTaskCreate(wifi_status_task, "wifi_status_task", 4096, NULL, 5, NULL);
 
-        // Connect to wi-fi
+        // Connect to wi-fi according to given SSID and password
         esp_err_t ret = UAMwifi_connect(WIFI_SSID, WIFI_PASSWORD);
         if (ret != ESP_OK) {
             ESP_LOGE(TAG, "Failed to connect to Wi-Fi network");
