@@ -30,7 +30,7 @@ void receive_uart(void *pvParameters)
             continue; // Skip this iteration if there was an error
         }
         if (length > 0) {
-            length = uart_read_bytes(UART_NUM_1, data, sizeof(data), 100);
+            length = uart_read_bytes(UART_NUM_1, data, sizeof(data), 100); // Read data from UART w/ 100 tick timeout
             ESP_LOGI(TAG, "Received %d bytes from UART", length); // log the number of bytes received
             ESP_LOG_BUFFER_HEX(TAG, data, length); // log the received data in hex format
             // Send data over socket (Wi-Fi or Ethernet)

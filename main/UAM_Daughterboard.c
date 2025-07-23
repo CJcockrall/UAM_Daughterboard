@@ -22,6 +22,7 @@ static bool use_wifi = true;
 #define SERVER_IP "10.0.0.194" // Replace with your server's IP address
 #define SERVER_PORT 8080 // Replace with your server's port number
 ///////////////////////////////////////
+
 int sock = -1; // Global variable to hold socket file descriptor, initialized with invalid value
 void app_main(void)
 {
@@ -89,8 +90,20 @@ void app_main(void)
 
     // Create tasks for UART and Wi-Fi communication, see comm_tasks.c and comm_tasks.h
     ESP_LOGI(TAG, "Creating communication tasks...");
-    xTaskCreate(receive_uart, "receive_uart", 2048, NULL, 5, NULL); // Task to receive data from UART and send it over Wi-Fi or Ethernet
-    xTaskCreate(transmit_uart, "transmit_uart", 2048, NULL, 5, NULL); // Task to receive data from Wi-Fi or Ethernet and send it over UART
+
+    TaskHandle_t rx_task_handle = NULL;
+    TaskHandle_t tx_task_handle = NULL;
+
+    // Task to receive data from UART and send it over Wi-Fi or Ethernet
+    if (xTaskCreate(receive_uart, "receive_uart", 4096, NULL, 5, &rx_task_handle) != pdPASS) {
+        ESP_LOGE(TAG, "Failed to create receive_uart task");
+        return;
+    }
+    // Task to transmit data from Wi-Fi or Ethernet to UART
+    if (xTaskCreate(transmit_uart, "transmit_uart", 4096, NULL, 5, &tx_task_handle) != pdPASS) {
+        ESP_LOGE(TAG, "Failed to create transmit_uart task");
+        return;
+    }
 
     ESP_LOGI(TAG, "End of Program...");
 }
